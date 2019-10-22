@@ -63,57 +63,59 @@ class CodeEditor extends Component {
     const statusColor = darkMode ?
       getDarkStatusColor(statusMessage) : getStatusColor(statusMessage);
     return (
-      <Sidebar
-        animation="scale down"
-        visible={editorOpen}
-        direction="right"
-        width="very wide"
-        style={{
-          width: '100vw',
-          maxWidth: '100vw',
-          maxHeight: '100vh',
-          overflowX: 'hidden',
-          backgroundColor: darkMode ? '#2d2d2d' : '#fff',
-        }}
-      >
-        <SidebarCloseButton
-          title="Code Editor"
-          titleIcon="edit"
-          statusMessage={statusMessage}
-          statusMessageColor={statusColor}
-          closeToolbar={() => dispatch(toggleEditor())}
-          toolbarOpen={editorOpen}
-          backgroundColor={darkMode ? '#2d2d2d' : '#fff'}
-        />
-        <div
+      <div data-testid="CodeEditor" className="json-resume-tool">
+        <Sidebar
+          animation="scale down"
+          visible={editorOpen}
+          direction="right"
+          width="very wide"
           style={{
-            paddingTop: 10,
-            paddingLeft: 20,
-            paddingRight: 20,
-            paddingBottom: 20,
-            height: '92%',
+            width: '100vw',
+            maxWidth: '100vw',
+            maxHeight: '100vh',
             overflowX: 'hidden',
+            backgroundColor: darkMode ? '#2d2d2d' : '#fff',
           }}
         >
-          <Segment
-            style={{ height: '100%', width: '100%', backgroundColor: darkMode ? '#1f1f1f' : '#fff' }}
-            color={statusColor}
+          <SidebarCloseButton
+            title="Code Editor"
+            titleIcon="edit"
+            statusMessage={statusMessage}
+            statusMessageColor={statusColor}
+            closeToolbar={() => dispatch(toggleEditor())}
+            toolbarOpen={editorOpen}
+            backgroundColor={darkMode ? '#2d2d2d' : '#fff'}
+          />
+          <div
+            style={{
+              paddingTop: 10,
+              paddingLeft: 20,
+              paddingRight: 20,
+              paddingBottom: 20,
+              height: '92%',
+              overflowX: 'hidden',
+            }}
           >
-            <AceEditor
-              mode="json"
-              theme={darkMode ? 'tomorrow_night_bright' : 'tomorrow'}
-              name="json-resume-editor"
-              enableBasicAutocompletion={false}
-              enableLiveAutocompletion={false}
-              value={editorValue}
-              showLineNumber
-              showPrintMargin={false}
-              tabSize={3}
-              onChange={this.onResumeChange}
-            />
-          </Segment>
-        </div>
-      </Sidebar>
+            <Segment
+              style={{ height: '100%', width: '100%', backgroundColor: darkMode ? '#1f1f1f' : '#fff' }}
+              color={statusColor}
+            >
+              <AceEditor
+                mode="json"
+                theme={darkMode ? 'tomorrow_night_bright' : 'tomorrow'}
+                name="json-resume-editor"
+                enableBasicAutocompletion={false}
+                enableLiveAutocompletion={false}
+                value={editorValue}
+                showLineNumber
+                showPrintMargin={false}
+                tabSize={3}
+                onChange={this.onResumeChange}
+              />
+            </Segment>
+          </div>
+        </Sidebar>
+      </div>  
     );
   }
 }
