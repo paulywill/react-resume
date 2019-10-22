@@ -16,7 +16,18 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       );    
     
       // get root node created by CodeEditor
-      const ed = getByTestId('CodeEditor');
+      const ce = getByTestId('CodeEditor');
+
+      // should have class "json-resume-tool"
+      expect(ce.classList).toContain('json-resume-tool');
+
+      // should contain 1 very wide sidebar
+      expect(ce.childElementCount).toBe(1);
+
+      // first child should be a div with expected classes
+      const label = ce.firstChild;
+      expect(label.tagName).toBe('DIV');
+      expect(label.classList).toContain('ui', 'monkey', 'basic', 'label');
   });
 
 
