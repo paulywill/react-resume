@@ -27,7 +27,7 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       // first child should be a div with expected classes
       const label = ce.firstChild;
       expect(label.tagName).toBe('DIV');
-      expect(label.classList).toContain('ui', 'monkey', 'basic', 'label');
+      expect(label.classList).toContain('ui', 'scale', 'down', 'right', 'very', 'wide', 'sidebar');
   });
 
 
