@@ -7,7 +7,9 @@ import { Provider } from 'react-redux';
 import store from '../store';
 import CodeEditor from '../components/Tools/CodeEditor';
 
-
+//TODO: cover getDarkStatusColor(statusMessage)
+//TODO: cover statusMessage
+//      ref: Semantic-UI-React test spec: https://github.com/Semantic-Org/Semantic-UI-React/blob/4d0688a26a74f024249e61796a3e2bbe2886bce4/test/specs/collections/Menu/MenuItem-test.js
 
 describe('Code Editor renders as expected with label and icon, status label, close button at the top and code editor below', () => {
   test('Container for code editor renders as expected', () => { 
@@ -36,13 +38,24 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       expect(menu.classList).toContain('ui', 'massive', 'borderless', 'top', 'attached', 'menu');
       expect(menu.nodeName).toBe('DIV');
       
-      // menu should have a left label, status mext, and a close button 
+      // menu should have a edit icon and label on the left
       expect(menu.childElementCount).toEqual(3);
-      expect(menu.firstChild.tagName).toEqual('DIV');
-      expect(menu.firstChild.classList).toContain('left', 'item');
-      expect(menu.firstChild.childElementCount).toBe(1);
-      expect(menu.firstChild.firstChild.classList).toContain('edit', 'icon')
-      expect(menu.firstChild.firstChild.nodeValue).toContain('Code Editor')
+      expect(menu.childNodes[0].tagName).toEqual('DIV');
+      expect(menu.childNodes[0].classList).toContain('left', 'item');
+      expect(menu.childNodes[0].childElementCount).toBe(1);
+      expect(menu.childNodes[0].firstChild.classList).toContain('edit', 'icon');
+      expect(menu.childNodes[0].textContent).toContain('Code Editor');
+
+      // menu should have a status message that updates when there's a change
+      expect(menu.childNodes[1].tagName).toEqual('DIV');
+      expect(menu.childNodes[1].classList).toContain('left', 'item');
+      expect(menu.childNodes[1].nodeType).toEqual(1);
+
+      // menu should have a close button on the right to close editor
+      expect(menu.childNodes[2].tagName).toEqual('A');
+      expect(menu.childNodes[2].classList).toContain('right', 'icon', 'item');
+      expect(menu.childNodes[2].childElementCount).toBe(1);
+      expect(menu.childNodes[2].firstChild.classList).toContain('x', 'icon');
   });
 
 
