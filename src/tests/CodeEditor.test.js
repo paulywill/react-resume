@@ -49,13 +49,15 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       // menu should have a status message that updates when there's a change
       expect(menu.childNodes[1].tagName).toEqual('DIV');
       expect(menu.childNodes[1].classList).toContain('left', 'item');
-      expect(menu.childNodes[1].nodeType).toEqual(1);
+      // following expect should be dynamic, maybe use const array with acceptable statuses
+      expect(menu.childNodes[1].textContent).toEqual(expect.any(String));
+     
 
       // menu should have a close button on the right to close editor
       expect(menu.childNodes[2].tagName).toEqual('A');
       expect(menu.childNodes[2].classList).toContain('right', 'icon', 'item');
       expect(menu.childNodes[2].childElementCount).toBe(1);
-      expect(menu.childNodes[2].firstChild.classList).toContain('x', 'icon');
+      
   });
 
 
