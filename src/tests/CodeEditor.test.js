@@ -55,7 +55,18 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       expect(menu.childNodes[2].tagName).toEqual('A');
       expect(menu.childNodes[2].classList).toContain('right', 'icon', 'item');
       expect(menu.childNodes[2].childElementCount).toBe(1);
-      expect(menu.childNodes[2].firstChild.classList).toContain('x', 'icon');
+      expect(menu.childNodes[2].firstChild.classList).toContain('icon');
+      
+      // ace code editor should load up in a segment
+      const ace = label.childNodes[1];
+      expect(ace.tagName).toBe('DIV');
+      expect(ace).toHaveStyle(`
+        padding: 10px 20px 20px 20px;  
+      `)  
+      //padding: 10px 20px 20px; height: 92%; overflow-x: hidden;
+      
+      
+      
   });
 
 
