@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Sidebar, Segment } from 'semantic-ui-react';
 import AceEditor from 'react-ace';
+import "ace-builds/src-noconflict/mode-json";
 import 'ace-builds/src-noconflict/theme-tomorrow';
 import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
 import { SidebarCloseButton } from '../Navigation';
