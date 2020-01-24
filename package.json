@@ -27,8 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "testcoverage": "react-scripts test --coverage --watchAll=false",
-    "testreport": "open coverage/lcov-report/index.html",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "test:report": "open coverage/lcov-report/index.html",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -59,6 +59,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
+    "react-test-renderer": "^16.12.0",
     "eslint": "^6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.0",
