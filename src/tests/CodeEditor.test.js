@@ -57,8 +57,7 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       expect(menu.childNodes[2].tagName).toEqual('A');
       expect(menu.childNodes[2].classList).toContain('right', 'icon', 'item');
       expect(menu.childNodes[2].childElementCount).toBe(1);
-<<<<<<< HEAD
-=======
+
       expect(menu.childNodes[2].firstChild.classList).toContain('icon');
       
       // ace code editor should load up in a segment
@@ -70,7 +69,6 @@ describe('Code Editor renders as expected with label and icon, status label, clo
       //padding: 10px 20px 20px; height: 92%; overflow-x: hidden;
       
       
->>>>>>> 648b61c94416644a183566bc3c3c427e2b4dabb9
       
   });
 

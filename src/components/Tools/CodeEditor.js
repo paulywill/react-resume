@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Sidebar, Segment } from 'semantic-ui-react';
 import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/theme-tomorrow';
+import 'ace-builds/src-noconflict/theme-tomorrow_night_bright';
 import { SidebarCloseButton } from '../Navigation';
 import {
   toggleEditor,
@@ -13,10 +15,8 @@ import {
 import { isValidJSON } from '../../helpers/resume.helper';
 import { EDITOR_STATUS, getStatusColor, getDarkStatusColor } from '../../helpers/tools.helper';
 
-import 'brace/mode/json';
-import 'brace/theme/tomorrow_night_bright';
-import 'brace/theme/tomorrow';
-import 'brace/ext/language_tools';
+
+
 
 class CodeEditor extends Component {
   constructor(props) {
@@ -106,11 +106,16 @@ class CodeEditor extends Component {
                 name="json-resume-editor"
                 enableBasicAutocompletion={false}
                 enableLiveAutocompletion={false}
+                
                 value={editorValue}
                 showLineNumber
                 showPrintMargin={false}
                 tabSize={3}
                 onChange={this.onResumeChange}
+
+                editorProps={{
+                  $blockScrolling: Infinity
+                }}
               />
             </Segment>
           </div>
