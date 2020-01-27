@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly and matches snapshot 1`] = `
+<div
+  className="json-resume-tool"
+  data-testid="CodeEditor"
+>
+  <div
+    className="ui scale down right very wide sidebar"
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "maxHeight": "100vh",
+        "maxWidth": "100vw",
+        "overflowX": "hidden",
+        "width": "100vw",
+      }
+    }
+  >
+    <div
+      className="ui massive borderless top attached menu"
+      style={
+        Object {
+          "backgroundColor": "#fff",
+          "border": "none",
+          "maxWidth": "100%",
+        }
+      }
+    >
+      <div
+        className="left item"
+        onClick={[Function]}
+      >
+        <i
+          aria-hidden="true"
+          className="edit icon"
+          onClick={[Function]}
+        />
+        Code Editor
+      </div>
+      <div
+        className="left item"
+        onClick={[Function]}
+        style={
+          Object {
+            "color": "blue",
+          }
+        }
+      >
+        waiting for changes
+      </div>
+      <a
+        className="right icon item"
+        onClick={[Function]}
+        style={
+          Object {
+            "minWidth": 60,
+          }
+        }
+      >
+        <i
+          aria-hidden="true"
+          className="angle left icon"
+          onClick={[Function]}
+        />
+        
+      </a>
+    </div>
+    <div
+      style={
+        Object {
+          "height": "92%",
+          "overflowX": "hidden",
+          "paddingBottom": 20,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+          "paddingTop": 10,
+        }
+      }
+    >
+      <div
+        className="ui blue segment"
+        style={
+          Object {
+            "backgroundColor": "#fff",
+            "height": "100%",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          id="json-resume-editor"
+          style={
+            Object {
+              "height": "500px",
+              "width": "500px",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
