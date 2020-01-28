@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import store from '../store';
 import CodeEditor from '../components/Tools/CodeEditor';
 import AceEditor from 'react-ace';
+import Resume from '../components/Resume';
 
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from "enzyme-adapter-react-16";
@@ -32,26 +33,23 @@ describe('Test updating', () => {
     shallow(<Provider store={store}><CodeEditor /></Provider>);
   });
   
-
   test("Did Update", () => {
-    //TO-DO: refactor so there's not so many nested const; reduce testing time
-    const startValue = "start value";
-    
+
+    const { getByTestId } = render(
+      <Provider store={store}><CodeEditor /></Provider>,
+    );
+
+    render(<Provider store={store}><Resume /></Provider>);
+
+
+    //===============================================================================
     const wrapper = mount(<Provider store={store}><CodeEditor/></Provider>);
     let editorValue = wrapper.find(AceEditor).prop('value')
-    //wrapper.find(AceEditor).setState({ 'value' : 'bar' });
-    //wrapper.update();
-    console.log(typeof editorValue); 
-
     let obj = JSON.parse(editorValue);
-    console.log(obj);
-    console.log('name: ' +  obj.header.name); 
+    expect(obj.header.name).toEqual('Your Name'); 
     obj.header.name = 'Kobe Bryant';
-    console.log('name: ' + obj.header.name); 
+    expect(obj.header.name).toEqual('Kobe Bryant'); 
     editorValue = JSON.stringify(obj);
-    console.log(editorValue);
-    //wrapper.find(AceEditor).setState({ 'value': editorValue });
-   // wrapper.find(AceEditor).setProps('children', <AceEditor 'value': editorValue />)
     wrapper.setProps({ children: 
       <AceEditor
         mode="json"
@@ -68,9 +66,13 @@ describe('Test updating', () => {
           $blockScrolling: Infinity
         }}
       /> });
-
     wrapper.update();
-    console.log(wrapper.find(AceEditor).prop('value')); 
+    expect(wrapper.find(AceEditor).prop('value')).toContain('Kobe Bryant');
+
+    //===============================================================================
+
+
+    fireEvent.click(`json-resume-editor`);
   });
 
 
