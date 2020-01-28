@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly and matches snapshot 1`] = `
+exports[`Renders correctly and matches snapshot 1`] = `
 <div
   className="json-resume-tool"
   data-testid="CodeEditor"
